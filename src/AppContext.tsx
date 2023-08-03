@@ -9,32 +9,37 @@ export interface Question {
 
 export interface Survey {
   id: number;
-  addQuestion: (question: Question) => void;
   questions: Question[];
+}
+
+type AppContextData = {
+  addQuestion: (question: Question) => void;
   addSurvey: (survey: Survey) => void;
+  questions: Question[];
   steps: number;
   setSteps: (steps: number) => void;
-  survey: Survey[];
-}
+  surveys: Survey[];
+};
+
+export const AppContext = createContext<AppContextData>({} as AppContextData);
 
 type Props = {
   children: React.ReactNode;
 };
 
-const AppContext = createContext<Survey>({} as Survey);
-
 const AppProvider: React.FC<Props> = ({ children }) => {
-  const [survey, setSurvey] = useState<Survey[]>([]);
+  const [surveys, setSurveys] = useState<Survey[]>([]);
   const [currentQuestions, setCurrentQuestions] = useState<Question[]>([]);
   const [steps, setSteps] = useState<number>(1);
-  // addQuestion to the lst of questions
+
+  // addQuestion to the list of questions
   const addQuestion = (question: Question) => {
     setCurrentQuestions((prevQuestions) => [...prevQuestions, question]);
   };
 
   // add survey
   const addSurvey = (survey: Survey) => {
-    setSurvey((prevSurvey) => [...prevSurvey, survey]);
+    setSurveys((prevSurveys) => [...prevSurveys, survey]);
   };
 
   return (
@@ -43,10 +48,9 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         addQuestion,
         addSurvey,
         questions: currentQuestions,
-        id: 1,
         steps: steps,
         setSteps: setSteps,
-        survey,
+        surveys,
       }}
     >
       {children}
@@ -54,4 +58,4 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   );
 };
 
-export { AppContext, AppProvider };
+export { AppProvider };

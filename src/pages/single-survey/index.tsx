@@ -7,9 +7,9 @@ const QUESTIONS_PER_PAGE = 5;
 const SingleSurvey = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const { id } = useParams();
-  const { survey } = React.useContext(AppContext);
+  const { surveys } = React.useContext(AppContext);
 
-  const currentSurvey = survey.find((item) => item.id === Number(id));
+  const currentSurvey = surveys.find((item) => item.id === Number(id));
 
   if (!currentSurvey) {
     return <div>Survey not found.</div>;
@@ -38,8 +38,7 @@ const SingleSurvey = () => {
   return (
     <div>
       <h1>
-        Survey {currentSurvey.id}{" "}
-        <small>Number of steps: {currentSurvey.steps}</small>{" "}
+        Survey {currentSurvey.id} <small>Number of steps: {totalPages}</small>{" "}
       </h1>
       <div>
         <h3>Questions:</h3>

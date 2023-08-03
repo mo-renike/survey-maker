@@ -3,7 +3,7 @@ import { AppContext, Question } from "../AppContext";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
-  const { questions, survey, addQuestion, setSteps, addSurvey, steps } =
+  const { questions, addQuestion, setSteps, addSurvey, steps } =
     useContext(AppContext);
 
   const [selectedType, setSelectedType] = useState<Question["type"]>("text");
@@ -27,11 +27,6 @@ const Form = () => {
     addSurvey({
       id: Date.now(),
       questions: questions,
-      addQuestion: addQuestion,
-      addSurvey: addSurvey,
-      steps: steps,
-      setSteps: setSteps,
-      survey: survey,
     });
 
     navigate("/surveys");
