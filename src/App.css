@@ -15,24 +15,69 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 0 20px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  background-color: #282c34;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 7px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #636363;
+  color: #9f9f9f;
+  border: 1px solid #282c34;
+  cursor: not-allowed;
+}
+input {
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  padding: 7px 15px;
+  margin: 0 5px;
+}
+select {
+  padding: 7px 15px;
+  margin: 0 5px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.w-50 {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mx-1 {
+  margin: 0 1rem;
+}
+
+li a {
+  color: #cdcdcd;
+  text-decoration: none;
 }
