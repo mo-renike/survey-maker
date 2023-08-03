@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# XYZ Limited Survey Automation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+XYZ Limited is a survey company that runs surveys for its clients. In the past, they have relied on manual processes, generating questions in Microsoft Word, printing them on paper, and collecting the responses manually. To streamline their survey operations, XYZ Limited contacted us to develop an application that automates the process of generating, sharing, and collecting survey questionnaires.
 
-## Available Scripts
+Our application is built using React, TypeScript, and Context API to provide a user-friendly interface for creating survey questionnaires and managing responses. Users can create multiple questionnaires, each comprising a customizable number of steps, with each step containing up to 5 questions.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Create and manage multiple questionnaires with custom steps and questions.
+- Questions can be of different types: text, radio, or checkbox.
+- Customizable options for radio and checkbox questions.
+- User-friendly interface for adding, editing, and removing questions.
+- Automated generation of questionnaires for easy sharing and data collection.
+- Real-time survey preview for better visual representation.
+- Efficient data management using React's Context API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React (Frontend Library)
+- TypeScript (Type-safe JavaScript)
+- Context API (State Management)
+- Fetch/Axios (HTTP Requests)
 
-### `npm test`
+## How to Use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository: `https://github.com/mo-renike/survey-maker`
+2. Navigate to the project folder: `cd survey-maker`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Access the application at `http://localhost:3000` in your web browser.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. On the homepage, enter the number of steps for your questionnaire and click "Submit."
+2. For each step, add up to 5 questions with options (for radio and checkbox questions).
+3. Review and save each step.
+4. Repeat the process until all steps are added.
+5. Click "Finish" to complete the questionnaire.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We welcome contributions to improve this survey automation application. To contribute:
 
-### `npm run eject`
+1. Fork the repository on GitHub.
+2. Create a new branch with a descriptive name for your feature or fix.
+3. Make changes and commit them to your branch.
+4. Push your changes to your forked repository.
+5. Open a pull request to merge your changes into the main repository.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
