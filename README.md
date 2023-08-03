@@ -1,4 +1,4 @@
-# XYZ Limited Survey Automation
+# Survey Automation
 
 This is  an application that automates the process of generating, sharing, and collecting survey questionnaires.
 
