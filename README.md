@@ -1,6 +1,6 @@
 # XYZ Limited Survey Automation
 
-XYZ Limited is a survey company that runs surveys for its clients. In the past, they have relied on manual processes, generating questions in Microsoft Word, printing them on paper, and collecting the responses manually. To streamline their survey operations, XYZ Limited contacted us to develop an application that automates the process of generating, sharing, and collecting survey questionnaires.
+This is  an application that automates the process of generating, sharing, and collecting survey questionnaires.
 
 Our application is built using React, TypeScript, and Context API to provide a user-friendly interface for creating survey questionnaires and managing responses. Users can create multiple questionnaires, each comprising a customizable number of steps, with each step containing up to 5 questions.
 
@@ -10,7 +10,6 @@ Our application is built using React, TypeScript, and Context API to provide a u
 - Questions can be of different types: text, radio, or checkbox.
 - Customizable options for radio and checkbox questions.
 - User-friendly interface for adding, editing, and removing questions.
-- Automated generation of questionnaires for easy sharing and data collection.
 - Real-time survey preview for better visual representation.
 - Efficient data management using React's Context API.
 
@@ -19,7 +18,6 @@ Our application is built using React, TypeScript, and Context API to provide a u
 - React (Frontend Library)
 - TypeScript (Type-safe JavaScript)
 - Context API (State Management)
-- Fetch/Axios (HTTP Requests)
 
 ## How to Use
 
