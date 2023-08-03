@@ -2,7 +2,7 @@
 
 This is  an application that automates the process of generating, sharing, and collecting survey questionnaires.
 
-Our application is built using React, TypeScript, and Context API to provide a user-friendly interface for creating survey questionnaires and managing responses. Users can create multiple questionnaires, each comprising a customizable number of steps, with each step containing up to 5 questions.
+The application is built using React, TypeScript, and Context API to provide a user-friendly interface for creating survey questionnaires and managing responses. Users can create multiple questionnaires, each comprising a customizable number of steps, with each step containing up to 5 questions.
 
 ## Features
 
