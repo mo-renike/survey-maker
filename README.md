@@ -33,11 +33,11 @@ Our application is built using React, TypeScript, and Context API to provide a u
 2. For each step, add up to 5 questions with options (for radio and checkbox questions).
 3. Review and save each step.
 4. Repeat the process until all steps are added.
-5. Click "Finish" to complete the questionnaire.
+5. Click "Add Questionnaire" to complete the questionnaire.
 
 ## Contributing
 
-We welcome contributions to improve this survey automation application. To contribute:
+ To contribute:
 
 1. Fork the repository on GitHub.
 2. Create a new branch with a descriptive name for your feature or fix.
