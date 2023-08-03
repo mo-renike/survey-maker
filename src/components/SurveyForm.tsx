@@ -2,32 +2,8 @@ import React, { useContext, useState } from "react";
 import { AppContext, Question } from "../AppContext";
 import { useNavigate } from "react-router-dom";
 
-const questionsPerPage = 5;
-
-const QuestionOptions: React.FC<{
-  options: string[];
-  onChange: (index: number, value: string) => void;
-}> = ({ options, onChange }) => {
-  return (
-    <div>
-      <h4>Options:</h4>
-      {options.map((option, index) => (
-        <div key={index}>
-          <input
-            type="text"
-            value={option}
-            onChange={(e) => onChange(index, e.target.value)}
-          />
-        </div>
-      ))}
-      <button onClick={() => onChange(options.length, "")}>Add Option</button>
-    </div>
-  );
-};
-
 const Form = () => {
-  const { questions, addQuestion, steps } = useContext(AppContext);
-  const navigate = useNavigate();
+  const { questions, addQuestion, addSurvey, steps } = useContext(AppContext);
 
   const [selectedType, setSelectedType] = useState<Question["type"]>("text");
   const [questionText, setQuestionText] = useState("");
@@ -38,20 +14,25 @@ const Form = () => {
     setQuestionOptions([]);
   };
 
-  const handleQuestionText = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuestionText(event.target.value);
-  };
+  const navigate = useNavigate();
 
-  const handleOptionChange = (index: number, value: string) => {
-    setQuestionOptions((prevOptions) => {
-      const newOptions = [...prevOptions];
-      newOptions[index] = value;
-      return newOptions;
+  const handleSave = () => {
+    if (questions.length < 0) {
+      alert("Please add a question");
+    } else {
+      alert("Survey created successfully");
+    }
+
+    addSurvey({
+      id: Date.now(),
+      questions: questions,
     });
+
+    navigate("/surveys");
   };
 
   const handleAddQuestion = () => {
-    if (questions.length >= steps * questionsPerPage) {
+    if (questions.length >= steps * 5) {
       return;
     }
     // check if question text is empty
@@ -70,17 +51,20 @@ const Form = () => {
     setQuestionOptions([]);
   };
 
-  const handleSave = () => {
-    if (questions.length === 0) {
-      alert("Please add at least one question");
-    } else {
-      alert("Survey created successfully");
-    }
+  const handleQuestionText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuestionText(event.target.value);
+  };
 
-    navigate("/surveys");
+  const handleOptionChange = (index: number, value: string) => {
+    setQuestionOptions((prevOptions) => {
+      const newOptions = [...prevOptions];
+      newOptions[index] = value;
+      return newOptions;
+    });
   };
 
   const [currentPage, setCurrentPage] = useState(1);
+  const questionsPerPage = 5;
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) =>
@@ -93,8 +77,10 @@ const Form = () => {
   };
 
   const startIndex = (currentPage - 1) * questionsPerPage;
-  const endIndex = startIndex + questionsPerPage;
-  const displayedQuestions = questions.slice(startIndex, endIndex);
+  const displayedQuestions = questions.slice(
+    startIndex,
+    startIndex + questionsPerPage
+  );
   const currentStep = Math.ceil(questions.length / questionsPerPage);
 
   return (
@@ -119,15 +105,26 @@ const Form = () => {
       </div>
 
       {selectedType === "radio" || selectedType === "checkbox" ? (
-        <QuestionOptions
-          options={questionOptions}
-          onChange={handleOptionChange}
-        />
+        <div>
+          <h4>Options:</h4>
+          {questionOptions.map((option, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={option}
+                onChange={(e) => handleOptionChange(index, e.target.value)}
+              />
+            </div>
+          ))}
+          <button onClick={() => setQuestionOptions([...questionOptions, ""])}>
+            Add Option
+          </button>
+        </div>
       ) : null}
 
       <button
         onClick={handleAddQuestion}
-        disabled={questions.length >= steps * questionsPerPage}
+        disabled={questions.length >= steps * 5}
       >
         Add Question
       </button>
@@ -164,7 +161,7 @@ const Form = () => {
 
       <button onClick={handleSave}>Submit Questionnaire</button>
       <h3>
-        Step {currentPage} of {steps}
+        Step {currentStep} of {steps}
       </h3>
     </div>
   );
