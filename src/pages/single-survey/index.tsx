@@ -69,20 +69,20 @@ const SingleSurvey = () => {
               userResponse={userResponses[question.id]}
             />
           ))}
-          {/* {totalQuestions > QUESTIONS_PER_PAGE && ( */}
-          <div>
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>
-              Previous Step
-            </button>
-            <button
-              type="submit"
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-            >
-              {currentPage === totalPages ? "Submit" : "Next Step"}
-            </button>
-          </div>
-          {/* )} */}
+          {totalQuestions > QUESTIONS_PER_PAGE && (
+            <div>
+              <button onClick={handlePrevPage} disabled={currentPage === 1}>
+                Previous Step
+              </button>
+              <button
+                type="submit"
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+              >
+                {currentPage === totalPages ? "Submit" : "Next Step"}
+              </button>
+            </div>
+          )}
         </div>
       </form>
       <h3>
